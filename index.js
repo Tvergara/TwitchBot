@@ -1,5 +1,6 @@
 const tmi = require('tmi.js');
 const now = new Date();
+const spam = ['u̻', 'ǒ', 'B͒'];
 
 const options = {
     options: {
@@ -38,6 +39,12 @@ client.on('chat', (channel, user, message, self) => {
             var result = Math.floor(Math.random() * number) + 1;
             client.action('MaginiGhost', result.toString());
 
+        }
+    }
+    for (i = 0; i < spam.length; i++){
+        if (message.includes(spam[i])) {
+            client.action('MaginiGhost', `Mods porfa baneen a ${user['display-name']}`);
+            i = spam.length;
         }
     }
 })
